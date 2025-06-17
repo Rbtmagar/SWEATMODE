@@ -1,0 +1,47 @@
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Contact from './pages/Contact';
+import Collection from './pages/Collection';
+import About from './pages/About';
+import Product from './pages/Product';
+import Cart from './pages/Cart';
+import PlaceOrder from './pages/PlaceOrder';
+import Orders from './pages/Orders';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import SearchBar from './components/SearchBar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const App = () => {
+  const location = useLocation();
+
+  // Routes where Navbar and Footer should be hidden
+  const hideLayout = location.pathname === '/login';
+
+  return (
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <ToastContainer />
+      {!hideLayout && <Navbar />}
+      <SearchBar />
+      
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/collection' element={<Collection />} />
+        <Route path='/product/:productId' element={<Product />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/place-order' element={<PlaceOrder />} />
+        <Route path='/orders' element={<Orders />} />
+      </Routes>
+
+      {!hideLayout && <Footer />}
+    </div>
+  );
+};
+
+export default App;
