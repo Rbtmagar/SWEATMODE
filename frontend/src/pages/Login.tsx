@@ -1,85 +1,28 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff } from 'lucide-react';
+import React, { useState } from 'react'
 
-const Login: React.FC = () => {
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const togglePasswordVisibility = () => setShowPassword(!showPassword);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Dummy validation logic
-    if (!email || !password) {
-      alert('Please fill in all fields.');
-      return;
-    }
-
-    // Here you could add logic to verify user (API call)
-    localStorage.setItem("authToken", "dummy_token");
-    navigate('/'); // Redirect to homepage or dashboard
-  };
-
+const Login = () => {
+  const [currentState, setCurrentState] = useState('Login');
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg p-8 w-full max-w-sm"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
-
-        {/* Email */}
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-600 mb-1">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="example@gmail.com"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full border px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-          />
-        </div>
-
-        {/* Password */}
-        <div className="mb-4 relative">
-          <label htmlFor="password" className="block text-gray-600 mb-1">
-            Password
-          </label>
-          <input
-            id="password"
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Enter your password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full border px-3 py-2 pr-10 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-          />
-          <span
-            onClick={togglePasswordVisibility}
-            className="absolute right-3 top-9 cursor-pointer text-gray-500"
-          >
-            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-          </span>
-        </div>
-
-        {/* Submit */}
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-900 transition"
-        >
-          Login
-        </button>
-      </form>
-    </div>
-  );
-};
+    <form className='flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800'>
+      <div className='inline-flex items-center gap-2 mb-2 mt-10'>
+        <p className='prata-regular text-3xl underline decoration-gray-500 decoration-2 underline-offset-4'>
+          {currentState}
+        </p>
+      </div>
+      {currentState === 'Login' ? '' : <input type='text' className='w-full px-3 py-2 border border-gray-800' placeholder='Name' required/>}
+      <input type='text' className='w-full px-3 py-2 border border-gray-800' placeholder='Email' required/>
+      <input type='text' className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required/>
+      <div className='w-full flex justify-between text-sm mt-[-8px]'>
+        <p className='cursor Pointer'>Forgot Password?</p>
+      </div>
+    </form>
+  )
+}
 
 export default Login;
+
+
+
+
+
+

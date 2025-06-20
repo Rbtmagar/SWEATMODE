@@ -2,15 +2,14 @@ import React from 'react';
 import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
 import NewsLetterBox from '../components/NewsLetterBox';
+import Title from '../components/Title';
 
 const Contact = () => {
   const navigate = useNavigate();
 
   return (
     <div className='border-t pt-10 px-4 sm:px-[5vw]'>
-      <h2 className='text-2xl font-bold text-center mb-10'>
-        CONTACT <span className='text-black'>US</span>
-      </h2>
+      <Title text1={'CONTACT '} text2={'US'}/>
 
       <div className='flex flex-col md:flex-row gap-8 items-center justify-center max-w-5xl mx-auto'>
         {/* Left Image */}

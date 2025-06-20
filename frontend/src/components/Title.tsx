@@ -1,3 +1,4 @@
+// TitleAlt6.tsx
 import React from 'react';
 
 interface TitleProps {
@@ -7,14 +8,19 @@ interface TitleProps {
 
 const Title: React.FC<TitleProps> = ({ text1, text2 }) => {
   return (
-    <div className='inline-flex gap-2 items-center mb-3'>
-      <p className='text-gray-500'>
-        {text1}
-        <span className='text-gray-700 font-medium'>{text2}</span>
-      </p>
-      <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
+    <div className="text-center mb-6">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 inline-block">
+        {text1}&nbsp;{text2}
+        <div className="mt-1 w-full h-[2px] bg-gray-500" />
+      </h2>
     </div>
   );
 };
 
 export default Title;
+
+
+
+
+
+

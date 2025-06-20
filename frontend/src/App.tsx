@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
@@ -12,21 +12,14 @@ import Orders from './pages/Orders';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const App = () => {
-  const location = useLocation();
-
-  // Routes where Navbar and Footer should be hidden
-  const hideLayout = location.pathname === '/login';
 
   return (
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
-      <ToastContainer />
-      {!hideLayout && <Navbar />}
+      <Navbar />
       <SearchBar />
-      
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
@@ -39,7 +32,7 @@ const App = () => {
         <Route path='/orders' element={<Orders />} />
       </Routes>
 
-      {!hideLayout && <Footer />}
+      <Footer />
     </div>
   );
 };

@@ -41,11 +41,11 @@ const Navbar = () => {
       <div className='flex items-center gap-6'>
         <IoIosSearch onClick={()=>setShowSearch(prev => !prev)} className='text-2xl w-8 cursor-pointer' />
         <div className='group relative'>
-        <CgProfile className='text-2xl w-8 cursor-pointer'/>
+        <Link to="/login"><CgProfile className='text-2xl w-8 cursor-pointer'/></Link>
             <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                 <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded-2xl'>
-                    <p className='cursor-pointer hover:text-black'>My Profile</p>
-                    <p className='cursor-pointer hover:text-black'>Orders</p>
+                    <Link to=""><p className='cursor-pointer hover:text-black'>My Profile</p></Link>
+                    <Link to="/orders"><p className='cursor-pointer hover:text-black'>Orders</p></Link>
                     <Link to="/login"><p className='cursor-pointer hover:text-black'>Logout</p></Link>
                 </div>
             </div>    
