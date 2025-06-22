@@ -2,6 +2,7 @@ import React from 'react';
 import { assets } from '../assets/assets';
 import { FaAward, FaUsers, FaChartLine } from 'react-icons/fa';
 import Title from '../components/Title';
+import NewsLetterBox from '../components/NewsLetterBox';
 
 const About = () => {
   return (
@@ -68,6 +69,7 @@ const About = () => {
           </ul>
         </div>
       </section>
+      <NewsLetterBox />
     </div>
   );
 };
