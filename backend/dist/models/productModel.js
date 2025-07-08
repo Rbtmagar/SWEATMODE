@@ -45,5 +45,5 @@ const productSchema = new mongoose_1.Schema({
     bestseller: { type: Boolean, required: true },
     date: { type: Number, required: true },
 });
-const ProductModel = mongoose_1.default.models.Product || mongoose_1.default.model("Product", productSchema);
-exports.default = ProductModel;
+const productModel = mongoose_1.default.models.Product || mongoose_1.default.model("Product", productSchema);
+exports.default = productModel;

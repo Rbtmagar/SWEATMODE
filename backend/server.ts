@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/mongodb';
 import connectCloudinary from './config/cloudinary';
 import userRouter from './routes/userRoute';
+import productRouter from './routes/productRoute';
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 // api endpoints
 app.use('/api/user',userRouter)
+app.use('/api/product',productRouter)
 
 app.get('/', (req, res) => {
   res.send('API is running');

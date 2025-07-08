@@ -13,7 +13,7 @@ const productSchema: Schema<IProduct> = new Schema({
   date: { type: Number, required: true },
 });
 
-const ProductModel: Model<IProduct> =
+const productModel: Model<IProduct> =
   mongoose.models.Product || mongoose.model<IProduct>("Product", productSchema);
 
-export default ProductModel;
+export default productModel;
