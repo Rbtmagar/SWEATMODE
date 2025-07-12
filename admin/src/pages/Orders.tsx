@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const Orders = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+interface AddProps {
+  token: string;
 }
 
-export default Orders
+const Orders: React.FC<AddProps> = ({ token }) => {
+  // ...your logic
+  return <div>Add page</div>;
+};
+
+export default Orders;

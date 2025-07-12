@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react'; // Or use any other icon set
+import { Eye, EyeOff } from 'lucide-react';
 
 const Login = () => {
   const [currentState, setCurrentState] = useState<'Login' | 'Sign Up'>('Login');

@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const List = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+interface AddProps {
+  token: string;
 }
 
-export default List
+const List: React.FC<AddProps> = ({ token }) => {
+  // ...your logic
+  return <div>Add page</div>;
+};
+
+export default List;
