@@ -18,7 +18,11 @@ const PORT = process.env.PORT || 5000;
 (0, mongodb_1.default)();
 (0, cloudinary_1.default)();
 // middlewares
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express_1.default.json());
 // api endpoints
 app.use('/api/user', userRoute_1.default);

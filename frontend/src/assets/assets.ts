@@ -95,7 +95,7 @@ export const myProducts = [
     _id: "6",
     name: "Custom T-Shirt",
     description: "Custom I love the Gym gray t-shirt for workouts.",
-    price: 950,
+    price: 949,
     image: [tshirt11],
     category: " Women",
     subCategory: "T-Shirts",

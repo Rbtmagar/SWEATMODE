@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useContext, useState} from 'react'
 import { assets } from '../assets/assets'
 import { Link, NavLink } from 'react-router-dom'
@@ -9,7 +10,14 @@ import { ShopContext } from '../context/ShopContext';
 const Navbar = () => {
 
     const [visible,setVisible] = useState(false);
-    const {setShowSearch, getCartCount} = useContext(ShopContext)!;
+    const {setShowSearch, getCartCount, navigate, token, setToken, setCartItems} = useContext(ShopContext)!;
+
+    const logout = () => {
+      localStorage.removeItem('userToken')
+      setToken('')
+      setCartItems({})
+      navigate('/login')
+    }
 
   return (
     <div className='flex items-center justify-between py-5 font-medium'>
@@ -41,14 +49,16 @@ const Navbar = () => {
       <div className='flex items-center gap-6'>
         <IoIosSearch onClick={()=>setShowSearch(prev => !prev)} className='text-2xl w-8 cursor-pointer' />
         <div className='group relative'>
-        <Link to="/login"><CgProfile className='text-2xl w-8 cursor-pointer'/></Link>
+        <CgProfile onClick={()=> token ? null : navigate('/login') } className='text-2xl w-8 cursor-pointer'/>
+          {/* DropDown menu */}
+            {token &&
             <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                 <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded-2xl'>
-                    <Link to="/login" ><p className='cursor-pointer hover:text-black'>My Profile</p></Link>
-                    <Link to="/orders"><p className='cursor-pointer hover:text-black'>Orders</p></Link>
-                    <Link to="/login"><p className='cursor-pointer hover:text-black'>Logout</p></Link>
+                    <p className='cursor-pointer hover:text-black'>My Profile</p>
+                    <p onClick={()=>navigate('/orders')} className='cursor-pointer hover:text-black'>Orders</p>
+                    <p onClick={logout} className='cursor-pointer hover:text-black'>Logout</p>
                 </div>
-            </div>    
+            </div>}    
         </div>
         {/* 🛒 Cart Icon with dynamic badge */}
       <Link to='/cart' className='relative'>

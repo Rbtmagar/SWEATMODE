@@ -39,7 +39,7 @@ export const addProduct = async (req: Request, res: Response, next: NextFunction
           date: Date.now()
         }
 
-        console.log(productData);
+        // console.log(productData);
 
         const product = new productModel(productData);
         await product.save()

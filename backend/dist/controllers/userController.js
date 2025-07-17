@@ -120,7 +120,7 @@ const adminLogin = async (req, res) => {
         }
         if (email === adminEmail && password === adminPassword) {
             const token = jsonwebtoken_1.default.sign({ email, role: "admin" }, jwtSecret, {
-                expiresIn: "2h",
+                expiresIn: "1d",
             });
             res.status(200).json({
                 success: true,

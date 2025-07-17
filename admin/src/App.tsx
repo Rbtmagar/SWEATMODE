@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
+export const currency = 'Rs';
 
 const App: React.FC = () => {
   const [token, setToken] = useState(localStorage.getItem('adminToken') || '');

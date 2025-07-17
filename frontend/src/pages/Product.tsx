@@ -25,6 +25,10 @@ const Product = () => {
     }
   }, [productId, myProducts]);
 
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}, [productId]);
+
   return productData ? (
     <div className='border-t-2 pt-10'>
       <div className='flex flex-col sm:flex-row gap-10'>

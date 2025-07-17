@@ -14,7 +14,7 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
     try {
         const { email, password } = req.body;
 
-        // Check for missing fields
+        // Checking for missing fields
         if (!email || !password) {
             res.status(400).json({ success: false, message: "Email and password are required." });
             return;   //  Must return to stop further execution

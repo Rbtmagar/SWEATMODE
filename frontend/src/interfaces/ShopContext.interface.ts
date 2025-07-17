@@ -16,6 +16,7 @@ export interface Product {
 
 export interface ShopContextType {
   myProducts: Product[];
+
   currency: string;
   deliveryFee: number;
 
@@ -29,6 +30,8 @@ export interface ShopContextType {
       [size: string]: number;
     };
   };
+  setCartItems: React.Dispatch<React.SetStateAction<{ [key: string]: { [size: string]: number } }>>;
+
   addToCart: (itemId: string, size: string, quantity: number) => void;
   getCartCount: () => number;
   getCartAmount: ()=> number;
@@ -38,5 +41,8 @@ export interface ShopContextType {
   navigate: NavigateFunction;
  clearCart: () => void;
 
+ backendUrl: string;
+ token: string;
+setToken: React.Dispatch<React.SetStateAction<string>>;
 
 }
